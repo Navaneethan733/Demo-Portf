@@ -68,8 +68,8 @@ if ($(".flat-thumbs-tes").length > 0) {
     swTesMain.controller.control = swThumb;
 }
 
-$(window).on("load", function() {
-    $(".tf-swiper").each(function(index, element) {
+$(window).on("load", function () {
+    $(".tf-swiper").each(function (index, element) {
         var $this = $(element);
         var laptop = $this.data("laptop") || 1;
         var preview = $this.data("preview") || 1;
@@ -77,8 +77,8 @@ $(window).on("load", function() {
         var mobile = $this.data("mobile") || 1;
         var mobileSm =
             $this.data("mobile-sm") !== undefined ?
-            $this.data("mobile-sm") :
-            mobile;
+                $this.data("mobile-sm") :
+                mobile;
 
         // Spacing
         var spacing = $this.data("space");
@@ -111,15 +111,15 @@ $(window).on("load", function() {
         var perGroupMd = $this.data("pagination-md") || 1;
         var perGroupLg = $this.data("pagination-lg") || 1;
         var gridRows = $this.data("grid") || 1;
-        var cursorType = $this.data("cursor") ? ? false;
-        var loop = $this.data("loop") ? ? false;
-        var loopMd = $this.data("loop-md") ? ? false;
+        var cursorType = $this.data("cursor") ?? false;
+        var loop = $this.data("loop") ?? false;
+        var loopMd = $this.data("loop-md") ?? false;
         var effect = $this.data("effect") || "slide";
         var atPlay = $this.data("auto"); // True || False
         var speed = $this.data("speed") || 800;
         var delay = $this.data("delay") || 1000;
         var direction = $this.data("direction") || "horizontal";
-        var centered = $this.data("center") ? ? false;
+        var centered = $this.data("center") ?? false;
         var init = $this.data("init") || 0;
 
         var swiperT = new Swiper($this[0], {
@@ -147,8 +147,8 @@ $(window).on("load", function() {
                 el: [
                     $this.find(".tf-sw-pagination")[0],
                     $this
-                    .closest(".tf-pag-swiper")
-                    .find(".tf-sw-pagination")[0],
+                        .closest(".tf-pag-swiper")
+                        .find(".tf-sw-pagination")[0],
                 ],
                 clickable: true,
             },
@@ -157,19 +157,19 @@ $(window).on("load", function() {
             navigation: {
                 nextEl: [
                     $this
-                    .closest(".tf-btn-swiper-main")
-                    .find(".nav-next-swiper")[0],
+                        .closest(".tf-btn-swiper-main")
+                        .find(".nav-next-swiper")[0],
                     $this
-                    .closest(".container")
-                    .find(".group-btn-slider .nav-next-swiper")[0],
+                        .closest(".container")
+                        .find(".group-btn-slider .nav-next-swiper")[0],
                 ],
                 prevEl: [
                     $this
-                    .closest(".tf-btn-swiper-main")
-                    .find(".nav-prev-swiper")[0],
+                        .closest(".tf-btn-swiper-main")
+                        .find(".nav-prev-swiper")[0],
                     $this
-                    .closest(".container")
-                    .find(".group-btn-slider .nav-prev-swiper")[0],
+                        .closest(".container")
+                        .find(".group-btn-slider .nav-prev-swiper")[0],
                 ],
             },
             breakpoints: {

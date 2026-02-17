@@ -1,24 +1,25 @@
-(function($) {
+(function ($) {
     "use strict";
     // DOM Ready
 
-    var effectCursor = function() {
+    var effectCursor = function () {
+        if ($(".cursor1").length === 0 || $(".cursor2").length === 0) return;
         document.addEventListener("mousemove", function e(t) {
             try {
                 t.target;
                 gsap.timeline({
-                        defaults: {
-                            x: t.clientX,
-                            y: t.clientY,
-                        },
-                    })
+                    defaults: {
+                        x: t.clientX,
+                        y: t.clientY,
+                    },
+                })
                     .to(".cursor1", {
                         ease: "power2.out",
                     })
                     .to(
                         ".cursor2", {
-                            ease: "power2.out",
-                        },
+                        ease: "power2.out",
+                    },
                         "-=0.4"
                     );
             } catch (o) {
@@ -27,7 +28,7 @@
         });
     };
 
-    var changetext = function() {
+    var changetext = function () {
         if ($(".reveal-type").length > 0) {
             const splitTypes = document.querySelectorAll(".reveal-type");
             splitTypes.forEach((e, t) => {
@@ -49,12 +50,12 @@
         }
     };
 
-    var animation_text = function() {
+    var animation_text = function () {
         if ($(".split-text").length > 0) {
             var st = $(".split-text");
             if (st.length === 0) return;
             gsap.registerPlugin(SplitText, ScrollTrigger);
-            st.each(function(index, el) {
+            st.each(function (index, el) {
                 const $el = $(el);
                 const $target =
                     $el.find("p, a").length > 0 ? $el.find("p, a")[0] : el;
@@ -135,13 +136,13 @@
                     split_type_set.forEach((elw, index) => {
                         gsap.set(
                             elw, {
-                                opacity: 0,
-                                scale: index % 2 === 0 ? 0 : 2,
-                                force3D: true,
-                                duration: 0.1,
-                                ease: "power3.out",
-                                stagger: 0.02,
-                            },
+                            opacity: 0,
+                            scale: index % 2 === 0 ? 0 : 2,
+                            force3D: true,
+                            duration: 0.1,
+                            ease: "power3.out",
+                            stagger: 0.02,
+                        },
                             index * 0.01
                         );
                     });
@@ -161,22 +162,22 @@
                     split_type_set = pxl_split.words;
                     gsap.fromTo(
                         split_type_set, {
-                            opacity: 0,
-                            filter: "blur(10px)",
-                            y: 20
-                        }, {
-                            opacity: 1,
-                            filter: "blur(0px)",
-                            y: 0,
-                            duration: 1,
-                            stagger: 0.1,
-                            ease: "power3.out",
-                            scrollTrigger: {
-                                trigger: $target,
-                                start: "top 86%",
-                                toggleActions: "play none none reverse",
-                            },
-                        }
+                        opacity: 0,
+                        filter: "blur(10px)",
+                        y: 20
+                    }, {
+                        opacity: 1,
+                        filter: "blur(0px)",
+                        y: 0,
+                        duration: 1,
+                        stagger: 0.1,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: $target,
+                            start: "top 86%",
+                            toggleActions: "play none none reverse",
+                        },
+                    }
                     );
                 } else {
                     gsap.from(split_type_set, settings);
@@ -185,7 +186,7 @@
         }
     };
 
-    var animationScaleImg = function() {
+    var animationScaleImg = function () {
         if ($(".scale-img").length > 0) {
             var scale = document.querySelectorAll(".scale-img");
             var image = document.querySelectorAll(".scale-img img");
@@ -220,7 +221,7 @@
         }
     };
 
-    var animateImgItem = function() {
+    var animateImgItem = function () {
         const isSmallScreen = window.matchMedia("(max-width: 991px)").matches;
 
         const observer = new IntersectionObserver(
@@ -237,19 +238,19 @@
                     }
                 });
             }, {
-                threshold: isSmallScreen ? 0.1 : 0.1,
-            }
+            threshold: isSmallScreen ? 0.1 : 0.1,
+        }
         );
 
         const elements = $(
             ".tf-animate-1, .tf-animate-2, .tf-animate-3, .tf-animate-4"
         );
-        elements.each(function() {
+        elements.each(function () {
             observer.observe(this);
         });
 
         const checkVisible = () => {
-            elements.each(function() {
+            elements.each(function () {
                 const sectionOffsetTop = $(this).offset().top;
                 const sectionHeight = $(this).outerHeight();
                 const scrollPosition = $(window).scrollTop();
@@ -271,7 +272,7 @@
         $(window).on("scroll", checkVisible);
     };
 
-    var fadeAnimation = function() {
+    var fadeAnimation = function () {
         let fadeArray_items = document.querySelectorAll(
             ".animateFade:not(.animated)"
         );
@@ -322,7 +323,7 @@
         }
     };
 
-    var loader = function() {
+    var loader = function () {
         var innerBars = document.querySelectorAll(".inner-bar");
         var increment = 0;
 
@@ -336,7 +337,7 @@
                 });
             }
 
-            setTimeout(function() {
+            setTimeout(function () {
                 for (var i = 0; i < 2; i++) {
                     gsap.to(innerBars[i + increment], {
                         width: "100%",
@@ -364,15 +365,27 @@
             }, 200);
         }
 
-        $(window).on("load", function() {
+        const startLoader = () => {
             animateBars();
-            setTimeout(function() {
+            setTimeout(function () {
                 $(".preloader").remove();
             }, 3000);
-        });
+        };
+
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+            startLoader();
+        } else {
+            $(window).on("load", startLoader);
+        }
+
+        setTimeout(function () {
+            if ($(".preloader").length > 0) {
+                $(".preloader").remove();
+            }
+        }, 5000);
     };
 
-    $(function() {
+    $(function () {
         loader();
         setTimeout(() => {
             changetext();
