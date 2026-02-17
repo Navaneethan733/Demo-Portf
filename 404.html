@@ -1,0 +1,404 @@
+<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Nava Neethan</title>
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <!--[if IE ]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
+    <meta name="description" content="Page not found - Nava Neethan Portfolio">
+    <meta name="keywords" content="404, Page Not Found, Nava Neethan">
+
+    <meta name="author" content="themesflat.com">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+    <!-- Font -->
+    <link rel="stylesheet" href="font/fonts.css">
+
+    <!-- Icon -->
+    <link rel="stylesheet" type="text/css" href="icons/icomoon/style.css">
+
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-color-secondary, #0a0a0a);
+        }
+
+        .error-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            padding: 40px 20px;
+        }
+
+        .error-code {
+            font-size: clamp(120px, 20vw, 280px);
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #FF6500 0%, #ff8533 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glitch 3s infinite;
+            position: relative;
+        }
+
+        .error-title {
+            font-size: clamp(28px, 5vw, 48px);
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .error-description {
+            font-size: clamp(16px, 2.5vw, 20px);
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .error-actions {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-404 {
+            padding: 16px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary-404 {
+            background: #FF6500;
+            color: #0a0a0a;
+            border: 2px solid #FF6500;
+        }
+
+        .btn-primary-404:hover {
+            background: transparent;
+            color: #FF6500;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 101, 0, 0.3);
+        }
+
+        .btn-secondary-404 {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary-404:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #ffffff;
+            transform: translateY(-3px);
+        }
+
+        /* Animated background elements */
+        .bg-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 101, 0, 0.1), rgba(255, 133, 51, 0.05));
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        .shape:nth-child(4) {
+            width: 250px;
+            height: 250px;
+            top: 30%;
+            right: 25%;
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.3;
+            }
+
+            25% {
+                transform: translate(30px, -30px) scale(1.1);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: translate(-20px, 20px) scale(0.9);
+                opacity: 0.4;
+            }
+
+            75% {
+                transform: translate(20px, 30px) scale(1.05);
+                opacity: 0.6;
+            }
+        }
+
+        @keyframes glitch {
+
+            0%,
+            90%,
+            100% {
+                transform: translate(0);
+            }
+
+            92% {
+                transform: translate(-2px, 2px);
+            }
+
+            94% {
+                transform: translate(2px, -2px);
+            }
+
+            96% {
+                transform: translate(-2px, -2px);
+            }
+
+            98% {
+                transform: translate(2px, 2px);
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .error-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-404 {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .shape {
+                opacity: 0.2;
+            }
+        }
+
+        /* Additional decorative elements */
+        .error-icon {
+            font-size: 80px;
+            color: #FF6500;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-20px);
+            }
+
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #FF6500;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: particle-float 15s infinite;
+        }
+
+        @keyframes particle-float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.5;
+            }
+
+            90% {
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translateY(-100px) translateX(100px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- wrapper -->
+    <div id="wrapper" class="bg-color-secondary">
+
+        <!-- header -->
+        <Header class="header-2 header-fixed">
+            <div class="container-2 d-flex justify-content-between">
+                <div class="header-left logo">
+                    <a href="index.html" class="text-white">
+                        <img src="images/logo/logo-2.webp" alt="Nava Neethan">
+                    </a>
+                </div>
+                <div class="header-right d-flex gap_8">
+                    <div class="tag-title d-inline-flex align-items-center gap_8 md-hide">
+                        <span class="point"></span>
+                        <p class="text-body-2 text_white">Available for work</p>
+                    </div>
+                    <a href="index.html" class="link-no-action side-toggle link-no-action">
+                        <div class="icon">
+                            <span class="top"></span>
+                            <span class="middle"></span>
+                            <span class="bottom"></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </Header>
+        <!-- /header -->
+
+        <!-- Error Page Content -->
+        <div class="error-page">
+            <!-- Background Shapes -->
+            <div class="bg-shapes">
+                <div class="shape"></div>
+                <div class="shape"></div>
+                <div class="shape"></div>
+                <div class="shape"></div>
+            </div>
+
+            <!-- Particles -->
+            <div class="particles">
+                <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+                <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
+                <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
+                <div class="particle" style="left: 40%; animation-delay: 1s;"></div>
+                <div class="particle" style="left: 50%; animation-delay: 3s;"></div>
+                <div class="particle" style="left: 60%; animation-delay: 5s;"></div>
+                <div class="particle" style="left: 70%; animation-delay: 2.5s;"></div>
+                <div class="particle" style="left: 80%; animation-delay: 4.5s;"></div>
+                <div class="particle" style="left: 90%; animation-delay: 1.5s;"></div>
+            </div>
+
+            <!-- Error Content -->
+            <div class="error-content">
+                <div class="error-icon">
+                    <i class="icon-AlertCircle"></i>
+                </div>
+                <h1 class="error-code">404</h1>
+                <h2 class="error-title">Page Not Found</h2>
+                <p class="error-description">
+                    Oops! The page you're looking for seems to have wandered off into the digital void.
+                    Don't worry, even the best developers get lost sometimes.
+                </p>
+                <div class="error-actions">
+                    <a href="index.html" class="btn-404 btn-primary-404">
+                        <i class="icon-Home"></i>
+                        <span>Back to Home</span>
+                    </a>
+                    <a href="javascript:history.back()" class="btn-404 btn-secondary-404">
+                        <i class="icon-ArrowLeft"></i>
+                        <span>Go Back</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- /Error Page Content -->
+
+    </div>
+    <!-- /wrapper -->
+
+    <!-- Javascript -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
